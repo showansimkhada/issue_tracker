@@ -1,0 +1,16 @@
+{
+  "name": "issue_tracker",
+  "version": "1.0.0",
+  "description": "Issue Tracker",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {},
+  "keywords": [
+    "node",
+    "freeCodeCamp",
+    "express"
+  ],
+  "license": "MIT"
+}
