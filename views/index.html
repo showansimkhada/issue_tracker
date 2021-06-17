@@ -65,8 +65,49 @@
             <h3>Delete issue on <i>apitest</i></h3>
             <form id="testForm3" class="border">
                 <input type="text" name="_id" placeholder="_id" style="width: 100px;" required=''><br>
-                
+                <button type="submit">Delete Issue</button>
             </form>
+            <code id='jsonResult'></code>
         </section>
+        <hr style="margin: 50px; margin-top: 200px;">
+        <!-- Your web-app is https, so your scripts need to be too -->
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js" integrity="sha256-gvQgAFzTH6trSrAW1iPo9Xc96QxSz3feW6kem+000=" crossorigin="anonymous"></script>
+        <script>
+            $(() => {
+                $('testForm').submit((e) => {
+                    $.ajax({
+                        url: '/api/issues/apitest',
+                        type: 'post',
+                        data: $('#testForm').serialize(),
+                        success: (data) => {
+                            $('#jsonResult').text(JSON.stringify(data));
+                        }
+                    });
+                    e.preventDefault();
+                });
+                $('testForm2').submit((e) => {
+                    $.ajax({
+                        url: '/api/issues/apitest',
+                        type: 'put',
+                        data: $('testForm2').serialize(),
+                        success: (data) => {
+                            $('#jsonResult').text(JSON.stringify(data));
+                        }
+                    });
+                    e.preventDefault();
+                });
+                $('testForm3').submit((e) => {
+                    $.ajax({
+                        url: '/api/issues/apitest',
+                        type: 'delete',
+                        data: $('#testForm3').serialize(),
+                        success: (data) => {
+                            $('#jsonResult').text(JSON.stringify(data));
+                        }
+                    });
+                    e.preventDefault();
+                })
+            })
+        </script>
     </body>
 </html>
