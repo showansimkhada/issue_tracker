@@ -4,6 +4,8 @@ const express =  require('express');
 
 require('dotenv').config();
 
+const runner = require('./test-runner');
+
 let app = express();
 
 app.use('/public', express.static(process.cwd() + '/public'));
